@@ -3,278 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debarjun Chakma | Professional Portfolio</title>
-    <meta name="description" content="Professional portfolio of Debarjun Chakma. Combining Computer Science foundations, Civil Engineering experience, and HubSpot-certified SEO.">
-    
-    <!-- IMPORTANT: Put your exact Google Verification Tag here -->
-    <meta name="google-site-verification" content="AegiteyMF3GKO3MjMwmDWvTtDyWOLDJzMhE2bfaRmPw" />
-
+    <title>Debarjun Chakma | Data Scientist & Web Developer</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e67e22;
-            --text-dark: #333333;
-            --bg-light: #f8f9fa;
-            --bg-white: #ffffff;
-        }
-
+        /* Modern Reset and Root Variables */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333333;
+            line-height: 1.6;
         }
 
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-dark); 
-            background-color: var(--bg-light); 
-            padding-top: 70px; /* Prevents header from hiding content */
-        }
-
-        /* --- MOBILE RESPONSIVE NAVIGATION --- */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: var(--primary-color);
-            border-bottom: 3px solid var(--secondary-color);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1100px;
-            margin: auto;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            color: var(--bg-white);
-            font-weight: bold;
-            font-size: 1.3rem;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #b4c6d8;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--bg-white);
-        }
-
-        /* --- RESPONSIVE CONTAINER --- */
-        .container { 
-            width: 90%; 
-            max-width: 1100px; 
-            margin: auto; 
-            padding: 20px 0; 
-        }
-
-        /* --- HERO HOME BANNER --- */
-        .hero-banner {
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1100&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
+        /* Hero Area Styling */
+        .hero-section {
             padding: 60px 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
         }
-
-        .hero-banner h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .hero-banner p { font-size: 1.2rem; color: #3498db; }
-
-        /* --- SECTIONS AS PAGES --- */
-        section { 
-            background: var(--bg-white); 
-            padding: 40px 30px; 
-            margin: 40px 0; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            scroll-margin-top: 90px; /* Ensures clean view when jumping to sections */
+        .hero-container {
+            background: linear-gradient(135deg, rgba(30, 61, 89, 0.95), rgba(15, 32, 48, 0.98)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200') no-repeat center center/cover;
+            color: #ffffff;
+            max-width: 800px;
+            width: 100%;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-align: center;
         }
-
-        h2 { 
-            color: var(--primary-color); 
-            border-bottom: 2px solid var(--secondary-color); 
-            padding-bottom: 10px; 
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        /* --- CARDS & TIMELINES --- */
-        .card, .timeline-item {
-            padding: 20px;
-            margin: 20px 0;
-            background: var(--bg-light);
-            border-radius: 6px;
-            border-left: 5px solid var(--secondary-color);
-        }
-
-        .date-badge {
-            background: var(--primary-color);
-            color: white;
-            padding: 3px 10px;
-            font-size: 0.85rem;
-            border-radius: 20px;
-            display: inline-block;
+        .hero-title {
+            font-size: 2.5rem;
             margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #ff6e40;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+            text-align: justify;
         }
 
-        /* --- FLEXIBLE RESPONSIVE GRID --- */
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 20px; 
+        /* Service Cards Section */
+        .services-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #1e3d59;
+            margin-bottom: 40px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background-color: #ffffff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #1e3d59;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: #666666;
         }
 
-        .tag {
-            background: #e1ecf4;
-            color: #39739d;
-            padding: 4px 8px;
-            font-size: 0.8rem;
-            border-radius: 3px;
-            margin-right: 5px;
-            display: inline-block;
-            margin-top: 10px;
+        /* Footer Styling */
+        footer {
+            background-color: #172a3a;
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
         }
 
-        /* --- MEDIA QUERIES (The Secret to Mobile Responsiveness) --- */
-        @media (max-width: 768px) {
-            body { padding-top: 120px; }
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+        /* Global Mobile Responsiveness Adjustments */
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
             }
-            .nav-links {
-                width: 100%;
-                justify-content: center;
-                gap: 15px;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
-            .hero-banner h1 { font-size: 1.8rem; }
-            .hero-banner p { font-size: 1rem; }
-            section { padding: 25px 15px; }
+            .hero-text {
+                font-size: 1rem;
+            }
+            .hero-container {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- RESPONSIVE NAVBAR (Always stays at top) -->
-    <nav>
-        <div class="nav-container">
-            <a href="#home" class="logo">DEBARJUN.DEV</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#seo-sandbox">SEO Sandbox</a></li>
-            </ul>
-        </div>
+    <!-- START OF MOBILE-RESPONSIVE NAVIGATION -->
+    <nav style="background-color: #1e3d59; padding: 15px 10px; width: 100%; box-sizing: border-box; border-bottom: 2px solid #ff6e40;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        
+        <!-- Branding Header -->
+        <a href="#" style="color: #ffffff; font-size: 22px; font-weight: bold; text-decoration: none; letter-spacing: 1px; font-family: sans-serif;">
+          DEBARJUN.DEV
+        </a>
+
+        <!-- Responsive Links List -->
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px;">
+          <li><a href="#home" style="color: #ffffff; text-decoration: none; font-size: 14px; font-family: sans-serif; font-weight: 500; padding: 6px 10px; display: inline-block; white-space: nowrap;">Home</a></li>
+          <li><a href="#services" style="color: #ffffff; text-decoration: none; font-size: 14px; font-family: sans-serif; font-weight: 500; padding: 6px 10px; display: inline-block; white-space: nowrap;">Services</a></li>
+          <li><a href="#education" style="color: #ffffff; text-decoration: none; font-size: 14px; font-family: sans-serif; font-weight: 500; padding: 6px 10px; display: inline-block; white-space: nowrap;">Education</a></li>
+          <li><a href="#experience" style="color: #ffffff; text-decoration: none; font-size: 14px; font-family: sans-serif; font-weight: 500; padding: 6px 10px; display: inline-block; white-space: nowrap;">Experience</a></li>
+          <li><a href="#seo-sandbox" style="color: #ffffff; text-decoration: none; font-size: 14px; font-family: sans-serif; font-weight: 500; padding: 6px 10px; display: inline-block; white-space: nowrap;">SEO Sandbox</a></li>
+        </ul>
+
+      </div>
     </nav>
+    <!-- END OF MOBILE-RESPONSIVE NAVIGATION -->
 
-    <div class="container">
-
-        <!-- ===== 1. HOME PAGE / HERO SECTION ===== -->
-        <section id="home" class="hero-banner">
-            <h1>Debarjun Chakma</h1>
-            <p>Computer Science Engineer & Technical SEO Specialist</p>
-            <div style="margin-top: 25px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; font-size: 1.05rem; color: #eaeded;">
-                I optimize modern digital architecture. By combining a background in Civil Engineering with B.Tech Computer Science principles, I develop high-performance web spaces rooted in clean code logic, data automations, and HubSpot-Certified search optimization strategies.
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <h1 class="hero-title">Debarjun Chakma</h1>
+            <h2 class="hero-subtitle">Data Scientist & Web Developer</h2>
+            <p class="hero-text">
+                I optimize modern digital architecture. By combining a foundational background in Civil Engineering with B.Tech Computer Science principles, I develop high-performance web spaces rooted in data models, Python automations, and advanced search optimization strategies.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#services" style="background-color: #ff6e40; color: white; text-decoration: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; font-size: 15px;">My Services</a>
+                <a href="https://github.com/DebarjunChakma" target="_blank" style="background-color: transparent; color: white; border: 2px solid white; text-decoration: none; padding: 10px 22px; border-radius: 5px; font-weight: bold; font-size: 15px;">GitHub Sandbox</a>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== 2. SERVICES PAGE / SECTION ===== -->
-        <section id="services">
-            <h2>Professional Services</h2>
-            <p style="margin-bottom: 20px; color: #555;">High-value standalone micro-services available for global businesses and local startups:</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Technical SEO Auditing</h3>
-                    <p>Complete structural site health monitoring. I optimize heading architectures ($H_1, H_2, H_3$), meta properties, and crawl capabilities to boost standard Google indices.</p>
-                </div>
-                <div class="card">
-                    <h3>Google Maps Optimization</h3>
-                    <p>Setting up, localizing, and refining Google Business Listings to significantly scale local geographical lead discovery metrics.</p>
-                </div>
-                <div class="card">
-                    <h3>Python Data & Automations</h3>
-                    <p>Developing custom programmatic content parsers and site scrapers to extract structural insights or manage datasets.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== 3. EDUCATION PAGE / SECTION ===== -->
-        <section id="education">
-            <h2>Educational Journey</h2>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Professional Solutions</h2>
+        <div class="services-grid">
             
-            <div class="timeline-item">
-                <span class="date-badge">Undergraduate</span>
-                <h3>B.Tech in Computer Science & Engineering</h3>
-                <p><strong>Noida International University</strong></p>
-                <p>Focused on structural database designs, computational processing rules, cloud execution models, and data automation logic.</p>
+            <!-- Card 1 -->
+            <div class="service-card">
+                <h3>💻 Web Development</h3>
+                <p>Custom, fluid, mobile-responsive business websites built with clean code architecture and high performance optimization.</p>
             </div>
 
-            <div class="timeline-item">
-                <span class="date-badge">Foundational Degree</span>
-                <h3>Diploma in Civil Engineering</h3>
-                <p>Instruction in precision planning models, spatial math drafting, blueprint logistics, and structural workflow consistency.</p>
+            <!-- Card 2 -->
+            <div class="service-card">
+                <h3>📊 Data Science & Automation</h3>
+                <p>Custom Python scripting, targeted web scraping, automated data parsing, and processing pipelines to eliminate manual repetition.</p>
             </div>
-        </section>
 
-        <!-- ===== 4. EXPERIENCE PAGE / SECTION ===== -->
-        <section id="experience">
-            <h2>Experience & Practical Sandbox Projects</h2>
-
-            <div class="timeline-item">
-                <span class="date-badge">Civil Infrastructure Sector</span>
-                <h3>Engineering Project Associate</h3>
-                <p>Managed analytical site mapping blueprints, structural parameter validation, and precision documentation tracking. Developed an advanced methodology for systematic error discovery.</p>
+            <!-- Card 3 -->
+            <div class="service-card">
+                <h3>📈 Technical SEO</h3>
+                <p>Deep site structural health audits, semantic formatting, heading schema alignments, and crawl verification via Google Search Console.</p>
             </div>
-            
-            <div class="timeline-item">
-                <span class="date-badge">Software Lab Environment</span>
-                <h3>Software Systems Logic Verification</h3>
-                <p><strong>Harvard CS50 Foundation Core Exercises</strong></p>
-                <p>Successfully processed complex algorithmic problems, data processing structures, memory optimizations, and strict programming formats.</p>
+
+            <!-- Card 4 -->
+            <div class="service-card">
+                <h3>📐 AutoCAD Drafting</h3>
+                <p>High-precision industrial design, spatial mapping parameters, and structural layout configurations based on engineering principles.</p>
             </div>
-        </section>
 
-        <!-- ===== 5. SEO & BLOG SANDBOX PAGE ===== -->
-        <section id="seo-sandbox">
-            <h2>Live SEO Sandbox & Articles</h2>
-            <p style="margin-bottom: 20px; color: #555;">This page acts as an active deployment workspace to track search crawler parameters using Google Search Console.</p>
-
-            <div class="card" style="border-left-color: var(--accent-color);">
-                <span class="date-badge" style="background: var(--accent-color);">Featured Post</span>
-                <h3>Why Technical Site Frameworks Dictate Modern Search Engine Visibility</h3>
-                <p style="margin-top: 10px;">In modern search engine optimization, website architecture mirrors standard engineering schematics. When search platform bots crawl a property, they interpret nesting frameworks to determine context. By utilizing clean logic rules—similar to coding procedures—developers can easily strip legacy layout bulk, minimize load latency parameters, and engineer smooth data pathways that perform efficiently across search engines.</p>
-                <div>
-                    <span class="tag">#TechnicalSEO</span>
-                    <span class="tag">#PythonAutomation</span>
-                    <span class="tag">#WebArchitecture</span>
-                </div>
+            <!-- Card 5 -->
+            <div class="service-card">
+                <h3>🎓 Programming Courses</h3>
+                <p>Structured, step-by-step training and mentorship channels for students looking to master core programming languages and computational logic.</p>
             </div>
-        </section>
 
-    </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2026 DEBARJUN.DEV | All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; color: #888888; margin-top: 5px;">Deployed securely via production servers.</p>
+    </footer>
 
 </body>
 </html>
