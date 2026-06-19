@@ -18,18 +18,30 @@
             line-height: 1.6;
         }
 
+        /* Navigation Style Layout */
+        nav {
+            background-color: #1e3d59; 
+            padding: 15px 10px; 
+            width: 100%; 
+            box-sizing: border-box; 
+            border-bottom: 2px solid #ff6e40;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
         /* Hero Area Styling */
         .hero-section {
             padding: 60px 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 80vh;
+            min-height: 75vh;
         }
         .hero-container {
             background: linear-gradient(135deg, rgba(30, 61, 89, 0.95), rgba(15, 32, 48, 0.98)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200') no-repeat center center/cover;
             color: #ffffff;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             padding: 40px 30px;
             border-radius: 12px;
@@ -54,18 +66,29 @@
             text-align: justify;
         }
 
-        /* Service Cards Section */
-        .services-section {
-            max-width: 1200px;
+        /* Generic Content Section Wrapper */
+        .content-section {
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 70px 20px 20px 20px;
         }
         .section-title {
             text-align: center;
             font-size: 2rem;
             color: #1e3d59;
             margin-bottom: 40px;
+            position: relative;
         }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #ff6e40;
+            margin: 10px auto 0 auto;
+        }
+
+        /* Services Grid Layout */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -92,13 +115,68 @@
             color: #666666;
         }
 
+        /* Education & Experience Detailed Timelines */
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .timeline-card {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #1e3d59;
+        }
+        .timeline-card.edu {
+            border-left-color: #ff6e40;
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            gap: 5px;
+        }
+        .timeline-title {
+            font-size: 1.25rem;
+            color: #1e3d59;
+            font-weight: 700;
+        }
+        .timeline-subtitle {
+            font-size: 1rem;
+            color: #555555;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .timeline-date {
+            background-color: #eef2f5;
+            color: #1e3d59;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .timeline-body {
+            font-size: 0.95rem;
+            color: #666666;
+        }
+        .timeline-body ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+        .timeline-body li {
+            margin-bottom: 5px;
+        }
+
         /* Footer Styling */
         footer {
             background-color: #172a3a;
             color: #ffffff;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
+            padding: 40px 20px;
+            margin-top: 80px;
             font-size: 0.9rem;
         }
 
@@ -116,13 +194,19 @@
             .hero-container {
                 padding: 30px 20px;
             }
+            .timeline-header {
+                flex-direction: column;
+            }
+            .timeline-date {
+                margin-top: 5px;
+            }
         }
     </style>
 </head>
 <body>
 
     <!-- START OF MOBILE-RESPONSIVE NAVIGATION -->
-    <nav style="background-color: #1e3d59; padding: 15px 10px; width: 100%; box-sizing: border-box; border-bottom: 2px solid #ff6e40;">
+    <nav>
       <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px;">
         
         <!-- Branding Header -->
@@ -159,40 +243,141 @@
     </section>
 
     <!-- SERVICES SECTION -->
-    <section id="services" class="services-section">
+    <section id="services" class="content-section">
         <h2 class="section-title">Professional Solutions</h2>
         <div class="services-grid">
             
-            <!-- Card 1 -->
             <div class="service-card">
                 <h3>💻 Web Development</h3>
                 <p>Custom, fluid, mobile-responsive business websites built with clean code architecture and high performance optimization.</p>
             </div>
 
-            <!-- Card 2 -->
             <div class="service-card">
                 <h3>📊 Data Science & Automation</h3>
                 <p>Custom Python scripting, targeted web scraping, automated data parsing, and processing pipelines to eliminate manual repetition.</p>
             </div>
 
-            <!-- Card 3 -->
             <div class="service-card">
                 <h3>📈 Technical SEO</h3>
                 <p>Deep site structural health audits, semantic formatting, heading schema alignments, and crawl verification via Google Search Console.</p>
             </div>
 
-            <!-- Card 4 -->
             <div class="service-card">
                 <h3>📐 AutoCAD Drafting</h3>
                 <p>High-precision industrial design, spatial mapping parameters, and structural layout configurations based on engineering principles.</p>
             </div>
 
-            <!-- Card 5 -->
             <div class="service-card">
                 <h3>🎓 Programming Courses</h3>
                 <p>Structured, step-by-step training and mentorship channels for students looking to master core programming languages and computational logic.</p>
             </div>
 
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="content-section">
+        <h2 class="section-title">Education</h2>
+        <div class="timeline-container">
+            
+            <!-- Edu 1 -->
+            <div class="timeline-card edu">
+                <div class="timeline-header">
+                    <div class="timeline-title">B.Tech in Computer Science and Engineering (CSE)</div>
+                    <span class="timeline-date">Pursuing</span>
+                </div>
+                <div class="timeline-subtitle">Noida International University (NIU)</div>
+                <div class="timeline-body">
+                    <p>Focusing on advanced computation architectures, data engineering principles, and core programming systems.</p>
+                    <ul>
+                        <li>Applied knowledge across computational frameworks and data pipeline designs.</li>
+                        <li>Extensive academic project building using Python, structural algorithms, and web infrastructure.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Edu 2 -->
+            <div class="timeline-card edu">
+                <div class="timeline-header">
+                    <div class="timeline-title">Diploma in Civil Engineering</div>
+                    <span class="timeline-date">Completed</span>
+                </div>
+                <div class="timeline-subtitle">Shyamoli Ideal Polytechnic Institute</div>
+                <div class="timeline-body">
+                    <p>Acquired strong analytical foundations, spatial logic mapping, and structural project calculation principles.</p>
+                    <ul>
+                        <li>Mastered high-precision industrial design and spatial alignments.</li>
+                        <li>Extensively trained in blueprint reading, technical mathematics, and logical project mapping configurations.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="content-section">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline-container">
+            
+            <!-- Exp 1 -->
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <div class="timeline-title">Freelance Full-Stack Developer & Data Analyst</div>
+                    <span class="timeline-date">Active</span>
+                </div>
+                <div class="timeline-subtitle">Independent Digital Contractor</div>
+                <div class="timeline-body">
+                    <p>Delivering production-ready digital architectures and processing scripts for custom freelance operations.</p>
+                    <ul>
+                        <li>Designing and deploying fluid, mobile-responsive business interfaces optimized across multi-platform screen configurations.</li>
+                        <li>Building custom Python automation modules, high-yield web scraping structures, and data validation pipelines.</li>
+                        <li>Conducting core Technical SEO health check audits, crawl adjustments, and heading alignments via Google Search Console.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Exp 2 -->
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <div class="timeline-title">Technical Educator & Platform Architect</div>
+                    <span class="timeline-date">Active</span>
+                </div>
+                <div class="timeline-subtitle">Learn Data with Debarjun (YouTube Platform)</div>
+                <div class="timeline-body">
+                    <p>Managing and producing professional technical content tutorials focusing on software infrastructure engineering.</p>
+                    <ul>
+                        <li>Formulating instructional course tracking documentation to introduce beginners to backend scripting and algorithmic logic.</li>
+                        <li>Recording and breaking down granular development tutorials across multiple programming languages, frameworks, and database logic setups.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Exp 3 -->
+            <div class="timeline-card">
+                <div class="timeline-header">
+                    <div class="timeline-title">Civil Engineering Field Specialist & AutoCAD Drafter</div>
+                    <span class="timeline-date">Prior Experience</span>
+                </div>
+                <div class="timeline-subtitle">Rangamati Hill District Council</div>
+                <div class="timeline-body">
+                    <p>Applied physical structural principles to map parameters, blueprint drafts, and structural layouts on active projects.</p>
+                    <ul>
+                        <li>Executed detailed 2D blueprint tracking layouts and blueprint modifications using high-precision AutoCAD tools.</li>
+                        <li>Managed asset tracking variables, material logs, and engineering safety documentation verification steps.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEO SANDBOX SECTION -->
+    <section id="seo-sandbox" class="content-section" style="text-align: center;">
+        <h2 class="section-title">SEO Sandbox & Verification</h2>
+        <div style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto;">
+            <p style="color: #666666; margin-bottom: 20px;">This portfolio domain is a live production space monitored closely for indexing metrics, structural heading hierarchies, and structural organic traffic data tracking.</p>
+            <span style="border: 2px dashed #ff6e40; color: #1e3d59; padding: 10px 20px; font-weight: bold; border-radius: 4px; display: inline-block;">HubSpot SEO Verified Environment</span>
         </div>
     </section>
 
